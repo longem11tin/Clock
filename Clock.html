@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function startTime() {
+                let Timetoday = new Date();
+                let hour = Timetoday.getHours();
+                let minute = Timetoday.getMinutes();
+                let second = Timetoday.getSeconds();
+
+                hour = checkTime(hour);
+                minute = checkTime(minute);
+                second = checkTime(second);
+
+                document.getElementById("Clock").innerHTML = 
+                hour + ":" + minute + ":" + second;
+                let Time = setTimeout(startTime, 500);
+            }
+
+            function checkTime(t) {
+                if (t < 10) {t = "0" + t};
+                return t;
+            }
+        </script>
+    </head>
+
+    <body onload="startTime()">
+        
+        <h1> <div id="Clock"></div> </h1>
+
+    </body>
+
+    <style>
+        body {
+            background-color: cyan;
+            display: grid;
+            height: 100%;
+            place-items: center;
+        }
+    </style>
+
+</html>
