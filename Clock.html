@@ -3,39 +3,56 @@
     <head>
         <script>
             function startTime() {
-                let Timetoday = new Date();
-                let hour = Timetoday.getHours();
-                let minute = Timetoday.getMinutes();
-                let second = Timetoday.getSeconds();
 
-                hour = checkTime(hour);
-                minute = checkTime(minute);
-                second = checkTime(second);
+                let timesup1 = document.getElementById("Clock1");
+                startTime(timesup1);
+                let timesup2 = document.getElementById("Clock2");
+                startTime(timesup2);
+                let timesup3 = document.getElementById("Clock3");
+                startTime(timesup3);
+                    
+                function TimeClock(obj) {
 
-                document.getElementById("Clock").innerHTML = 
-                hour + ":" + minute + ":" + second;
-                let Time = setTimeout(startTime, 500);
+                    let Timetoday = new Date(obj);
+
+                    let hour = Timetoday.getHours();
+                    let minute = Timetoday.getMinutes();
+                    let second = Timetoday.getSeconds();
+
+                    hour = checkTime(hour);
+                    minute = checkTime(minute);
+                    second = checkTime(second);
+
+                    obj.innerHTML = hour + ":" + minute + ":" + second;
+                    let Time = setTimeout(startTime, 500);
+                }
             }
-
-            function checkTime(t) {
-                if (t < 10) {t = "0" + t};
-                return t;
+            function checkTime(time) {
+                if (time < 10) {time = "0" + time};
+                return time;
             }
         </script>
     </head>
 
     <body onload="startTime()">
         
-        <h1> <div id="Clock"></div> </h1>
+        <p> <h1> <div id='Clock1'></div> </h1> </p>
+        <p> <h1> <div id='Clock2'></div> </h1> </p>
 
     </body>
 
     <style>
         body {
-            background-color: cyan;
-            display: grid;
-            height: 100%;
-            place-items: center;
+            background-color: white;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+        }
+     
+        p {
+            font-family: verdana;
+            font-size: 20px;
         }
     </style>
 
