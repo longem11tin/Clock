@@ -4,28 +4,24 @@
 
         function timeClock(timeZoneOffset) {
 
-            var today = new Date();
+            let today = new Date();
             today.setHours(today.getUTCHours() + timeZoneOffset);
-            var h = today.getUTCHours();
-            var m = today.getUTCMinutes();
-            var s = today.getUTCSeconds();
+            let hour = today.getUTCHours();
+            let minute = today.getUTCMinutes();
+            let second = today.getUTCSeconds();
 
-            m = checkTime(m);
-            s = checkTime(s);
-            h = checkTime(h);
+            minute = checkTime(minute);
+            second = checkTime(second);
+            hour = checkTime(hour);
 
-            document.all["clock3"].innerHTML = h + ':' + m + ':' + s + ' ';
-            document.all["clock1"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock2"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock4"].innerHTML = h + ':' + m + ':' +  s + ' ';
-            document.all["clock5"].innerHTML = h + ':' + m + ':' +  s + ' ';
+            document.body.querySelectorAll('[data-plugin-clock]').forEach(element => element.innerHTML = hour + ':' + minute + ':' + second + ' ')
             setTimeout(function() {
                 timeClock(timeZoneOffset)
             }, 500);
         }
 
         function checkTime(i) {
-            var j = i;
+            let j = i;
             if (i < 10) {
                 j = "0" + i;
             }
@@ -36,17 +32,17 @@
         }
     </script>
 
-    <boydy>
-        <p><h1><div id="clock1"></div></h1></p>
-        <p><h1><div id="clock2"></div></h1></p>
-        <p><h1><div id="clock3"></div></h1></p>
-        <p><h1><div id="clock4"></div></h1></p>
-        <p><h1><div id="clock5"></div></h1></p>
-    </boydy>
+    <body>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+        <h1 data-plugin-clock></h1>
+    </body>
 
     <style>
         body {
-            background-color: white;
+            background-color: paleturquoise;
         }
         h1 {
             color: black;
