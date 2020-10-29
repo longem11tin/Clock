@@ -14,7 +14,7 @@
             second = checkTime(second);
             hour = checkTime(hour);
 
-            document.body.querySelectorAll('[data-plugin-clock]').forEach(element => element.innerHTML = hour + ':' + minute + ':' + second + ' ')
+            document.body.querySelectorAll('[data-plugin-clock]').forEach(element => element.innerHTML = hour + ':' + minute + ':' + second + ' ')  
             setTimeout(function() {
                 timeClock(timeZoneOffset)
             }, 500);
